@@ -33,8 +33,11 @@
 	for ($i = 0; $i < $tokens->length; $i++) 
 	{
 		$meta = $tokens->item($i);
-		if($meta->getAttribute('name') == 'csrfmiddlewaretoken')
+		if($meta->getAttribute('name') == 'csrfmiddlewaretoken') {
 			$t = $meta->getAttribute('value');
+		} else {
+			$t = '';
+		}
 	}
 	if($t) {
 		$csrf_token = file_get_contents(realpath("another-cookie.txt"));
